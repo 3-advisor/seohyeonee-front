@@ -6,6 +6,19 @@ class Main extends React.Component {
   constructor(props) {
     super(props);
     this.state = {};
+    this.list = [
+      {
+        id: 1,
+        name: '세계과자할인점',
+        tags: ['과자', '디저트'],
+      },
+      {
+        id: 2,
+        name: '라하노카레',
+        tags: ['일식', '카레'],
+        description: '오후 12시 이전에 오면 계란후라이 혹은 고로케 서비스',
+      },
+    ];
   }
 
   render() {
@@ -22,14 +35,21 @@ class Main extends React.Component {
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <td className={style.foodTableContent}>세계과자할인점</td>
-                <td className={style.foodTableContent}>
-                  <span className={style.tag}>#과자</span>
-                  <span className={style.tag}>#디저트</span>
-                </td>
-                <td className={style.foodTableContent}>간판이 촌스럽다.</td>
-              </tr>
+              {
+                this.list.length && this.list.map(item => (
+                  <tr key={item.id}>
+                    <td className={style.foodTableContent}>{item.name}</td>
+                    <td className={style.foodTableContent}>
+                      {
+                        item.tags.length && item.tags.map(tag => (
+                          <span key={tag} className={style.tag}>#{tag}</span>
+                        ))
+                      }
+                    </td>
+                    <td className={style.foodTableContent}>{item.description}</td>
+                  </tr>
+                ))
+              }
             </tbody>
           </table>
         </div>
