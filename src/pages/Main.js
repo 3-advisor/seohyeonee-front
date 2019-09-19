@@ -1,24 +1,24 @@
 import React from 'react';
 
+import { api } from '../services/api';
 import style from '../scss/Main.scss';
 
 class Main extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {};
-    this.list = [
-      {
-        id: 1,
-        name: '세계과자할인점',
-        tags: ['과자', '디저트'],
-      },
-      {
-        id: 2,
-        name: '라하노카레',
-        tags: ['일식', '카레'],
-        description: '오후 12시 이전에 오면 계란후라이 혹은 고로케 서비스',
-      },
-    ];
+    this.state = {
+      list: [],
+    };
+  }
+
+  componentDidMount() {
+    this.fetchRestaurantList();
+  }
+
+  fetchRestaurantList() {
+    api.getAllRestaurant().then((result) => {
+      this.setState({ list: result.data });
+    });
   }
 
   render() {
@@ -36,8 +36,8 @@ class Main extends React.Component {
             </thead>
             <tbody>
               {
-                this.list.length && this.list.map(item => (
-                  <tr key={item.id}>
+                this.state.list.length > 0 && this.state.list.map(item => (
+                  <tr key={item._id}>
                     <td className={style.foodTableContent}>{item.name}</td>
                     <td className={style.foodTableContent}>
                       {
