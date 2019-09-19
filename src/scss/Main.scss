@@ -1,0 +1,40 @@
+@charset "utf-8";
+
+.pageTitle {
+    padding-top: 20px;
+    font-size: 24px;
+    line-height: 1.2;
+    text-align: center;
+}
+
+.food {
+    margin-top: 20px;
+    border-top: 1px solid #ccc;
+
+    &Table {
+        width: 100%;
+        border: none;
+        border-spacing: 0;
+        table-layout: fixed;
+        font-size: 14px;
+        line-height: 1.5;
+
+        &Title {
+            padding: 5px 0;
+            border-bottom: 1px solid #ccc;
+        }
+
+        &Content {
+            padding: 2px 0;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .tag {
+            display: inline-block;
+            margin: 0 3px;
+            padding: 0 3px;
+            border-radius: 2px;
+            background: #ddd;
+        }
+    }
+}
