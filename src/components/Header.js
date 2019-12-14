@@ -19,23 +19,13 @@ class Header extends React.Component {
     return (
       <div className={style.header}>
         <div className={style.headerInner}>
-          <h1 className={style.title}>
-            <NavLink to="/" className={style.titleLink}>서혀니</NavLink>
-          </h1>
-          <nav className={style.nav}>
-            <ul className={style.navList}>
-              {
-                this.linkList.length > 1 && this.linkList.map(item => (
-                  <li className={style.navItem} key={item.name}>
-                    <NavLink to={item.path} exact={item.exact}
-                      className={style.navLink} activeClassName={style.active}>
-                      {item.text}
-                    </NavLink>
-                  </li>
-                ))
-              }
-            </ul>
-          </nav>
+          <div className={style.headerBackground}>
+            <NavLink to="/" className={style.titleLink}>
+              <div className={style.subTitle}>Delicious Food</div>
+              <h1 className={style.title}>SEOHYEONEE</h1>
+            </NavLink>
+            <button className={style.pickBtn}>PICK!</button>
+          </div>
         </div >
       </div >
     );
