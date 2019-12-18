@@ -38,3 +38,63 @@
         }
     }
 }
+
+.blockArea {
+    text-align: center;
+    display: inline-block;
+    width: 80%;
+    padding: 20px 0px;
+}
+
+.pickBlock {
+    display: block;
+    width: 100%;
+    border: none;
+    border-radius: 15px;
+    background-color: rgba(150, 150, 150, 0.3);
+    text-transform: uppercase;
+    font-weight: 700;
+    padding: 10px 0px;
+    margin: 10px 0px;
+}
+
+.roundBlock {
+    display: Block;
+    border: none;
+    border-radius: 15px;
+    background-color: rgba(200, 200, 200, 0.3);
+    padding: 15px;
+    margin: 10px 0px;
+
+    .foodTag {
+        padding: 4px 6px;
+        margin: 0px 3px;
+        border: none;
+        background-color: rgb(100, 95, 92);
+        color: #fff;
+        font-size: 12px;
+    }
+
+    &Head {
+        display: flex;
+
+        .roundBlockTitle {
+            display: flex;
+            width: 30%;
+            font-size: 20px;
+        }
+
+        .roundBlockTagArea {
+            text-align: left;
+            width: 70%;
+        }
+    }
+
+    &Content {
+        text-align: left;
+    }
+
+    hr {
+        border-top: 1px solid rgb(200, 200, 200);
+    }
+}

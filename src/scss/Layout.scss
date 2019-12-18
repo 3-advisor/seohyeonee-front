@@ -6,9 +6,7 @@ $layout-width: 1040px;
 $header-height: 30px;
 
 .header {
-    padding: 10px;
-    background: #03c75a;
-    border-bottom: 1px solid #00af35;
+    text-align: center;
 
     &:after {
         display: block;
@@ -17,21 +15,47 @@ $header-height: 30px;
     }
 
     &Inner {
-        display: flex;
+        display: block;
         max-width: $layout-width;
         margin: 0 auto;
+        padding: 10px 0px;
+        background-image: url("/static/Farmhouse-48-1.jpg");
+        background-size: 100%;
+    }
+
+    &Background {
+        background-color: rgba(85, 73, 65, 0.7);
+        padding: 100px 0px;
     }
 
     .title {
-        display: flex;
+        text-align: center;
         font-size: $header-height / 1.2;
         line-height: 1.2;
+        text-transform: uppercase;
         &Link {
             text-decoration: none;
             color: #fff;
         }
     }
 
+    .subTitle {
+        text-align: center;
+        font-size: $header-height / 2.5;
+        line-height: 1.2;
+        font-style: italic;
+    }
+
+    .pickBtn {
+        padding: 3px 30px;
+        background-color: rgba(255, 255, 255, 0.75);
+        border: none;
+        border-radius: 10px;
+        font-size: $header-height / 2.5;
+        text-transform: uppercase;
+        text-decoration: none;
+    }
+    
     .nav {
         flex: none;
         margin-left: auto;
@@ -64,4 +88,5 @@ $header-height: 30px;
     max-width: $layout-width;
     padding: 0 20px;
     margin: 0 auto;
+    text-align: center;
 }
