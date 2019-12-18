@@ -24,7 +24,7 @@ class Header extends React.Component {
               <div className={style.subTitle}>Delicious Food</div>
               <h1 className={style.title}>SEOHYEONEE</h1>
             </NavLink>
-            <button className={style.pickBtn}>PICK!</button>
+            <button type="button" className={style.pickBtn}>PICK!</button>
           </div>
         </div >
       </div >
