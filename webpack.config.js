@@ -1,7 +1,8 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
-const aliasConfig = {
+const devolpConfig = {
+  entry: ['react-hot-loader/patch', './src/index.js'],
   resolve: {
     alias: {
       'react-dom': '@hot-loader/react-dom',
@@ -9,8 +10,11 @@ const aliasConfig = {
   },
 };
 
-const config = {
+const productConfig = {
   entry: './src/index.js',
+};
+
+const commonConfig = {
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: 'bundle.js',
@@ -52,10 +56,13 @@ const config = {
 
 
 if (process.env.ENVIRONMENT === 'production') {
-  module.exports = config;
+  module.exports = {
+    ...commonConfig,
+    ...productConfig,
+  };
 } else {
   module.exports = {
-    ...config,
-    ...aliasConfig,
+    ...commonConfig,
+    ...devolpConfig,
   };
 }
