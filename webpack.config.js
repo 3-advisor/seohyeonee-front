@@ -1,7 +1,15 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
-module.exports = {
+const aliasConfig = {
+  resolve: {
+    alias: {
+      'react-dom': '@hot-loader/react-dom',
+    },
+  },
+};
+
+const config = {
   entry: './src/index.js',
   output: {
     path: path.resolve(__dirname, 'dist'),
@@ -41,3 +49,13 @@ module.exports = {
     ],
   },
 };
+
+
+if (process.env.ENVIRONMENT === 'production') {
+  module.exports = config;
+} else {
+  module.exports = {
+    ...config,
+    ...aliasConfig,
+  };
+}
