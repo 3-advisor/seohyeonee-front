@@ -1,6 +1,6 @@
 import React from 'react';
 import { HashRouter as Router, Route } from 'react-router-dom';
-import { hot } from 'react-hot-loader';
+import { hot } from 'react-hot-loader/root';
 
 import Main from './pages/Main';
 
@@ -21,4 +21,4 @@ class App extends React.Component {
   }
 }
 
-export default hot(module)(App);
+export default hot(App);
