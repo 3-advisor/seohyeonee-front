@@ -4,8 +4,8 @@
   "description": "서혀니 웹 프론트",
   "main": "index.js",
   "scripts": {
-    "start": "webpack-dev-server",
-    "build": "webpack --mode=production",
+    "start": "webpack --mode=production",
+    "dev": "webpack-dev-server",
     "lint": "eslint \"**/*.js\"",
     "lint:fix": "eslint \"**/*.js\" --fix",
     "test": "echo \"Error: no test specified\" && exit 1"
