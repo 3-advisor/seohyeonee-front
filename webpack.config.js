@@ -1,24 +1,13 @@
 const path = require('path');
+const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
-module.exports = {
-  entry: './src/index.js',
+// 공통설정
+const commonConfig = {
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: 'bundle.js',
   },
-  devtool: 'inline-cheap-module-source-map',
-  devServer: {
-    contentBase: path.join(__dirname, '/'),
-    compress: false,
-    hot: true,
-    port: 8080,
-  },
-  plugins: [
-    new HtmlWebpackPlugin({
-      template: 'index.html',
-    }),
-  ],
   module: {
     rules: [
       {
@@ -40,4 +29,41 @@ module.exports = {
       },
     ],
   },
+};
+
+// 개발 설정
+const devolpConfig = {
+  entry: ['react-hot-loader/patch', './src/index.js'],
+  devtool: 'inline-cheap-module-source-map',
+  devServer: {
+    contentBase: path.join(__dirname, '/'),
+    compress: true,
+    hot: true,
+    port: 8080,
+  },
+  plugins: [
+    new webpack.HotModuleReplacementPlugin(),
+    new HtmlWebpackPlugin({
+      template: 'index.html',
+    }),
+  ],
+};
+
+// 배포 설정
+const productConfig = {
+  entry: './src/index.js',
+};
+
+
+module.exports = (env, args) => {
+  if (args.mode === 'production') {
+    return {
+      ...commonConfig,
+      ...productConfig,
+    };
+  }
+  return {
+    ...commonConfig,
+    ...devolpConfig,
+  };
 };
