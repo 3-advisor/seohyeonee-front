@@ -28,7 +28,7 @@ class Main extends React.Component {
           <button type="button" className={style.pickBlock}>PICK!</button>
           {
             this.state.list.length > 0 && this.state.list.map(item => (
-              <div key={item.id} className={style.roundBlock}>
+              <div key={item._id} className={style.roundBlock}>
                 <div className={style.roundBlockHead}>
                   <div className={style.roundBlockTitle}>
                     {item.name}
