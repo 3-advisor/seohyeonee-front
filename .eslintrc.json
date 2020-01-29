@@ -37,7 +37,7 @@
             "error",
             "consistent"
         ],
-        "arrow-body-style": "error",
+        "arrow-body-style": "warn",
         // "arrow-parens"
         "arrow-spacing": "error",
         "block-scoped-var": "error",
